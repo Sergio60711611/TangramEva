@@ -14,6 +14,20 @@
         <script src="../js/css.rotate.js"></script>
         <script src="../js/crossy.js"></script>
         <script src="../js/index.js"></script>
+        <script src="../js/screen.js"></script>
+        <script>
+            var screenshotBtn = document.getElementById('screenshot-btn');
+            var captureDiv = document.getElementById('captura');
+          
+            screenshotBtn.addEventListener('click', function() {
+              html2canvas(captureDiv).then(function(canvas) {
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL();
+                link.download = 'screenshot.png';
+                link.click();
+              });
+            });
+          </script>
     </head>
     <body>
         <div class="title">
@@ -29,13 +43,16 @@
                 </a>
             </div>
         </div>
-        <button type="" onclick={saludar()} class="custom-btn">
-            SALUDAR
-        </button>
+        <div class="container-botones">
+            <div class="botones">
+                <button type="" id="screenshotBtn" class="custom-btn">
+                    TERMINAR
+                </button>
+                <button class="custom-btn">
+                    <a href="../index.html">ATRAS</a>     
+                </button>  
+            </div>
+        </div>
+        
     </body>
-    <script>
-        function saludar() {
-            console.log("holi")
-        }
-    </script>
 </html>
