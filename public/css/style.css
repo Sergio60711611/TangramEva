@@ -107,6 +107,7 @@ div.lvl1 img {
     transform: translateX(-50%);
     bottom: 100px;
     pointer-events: auto;
+    z-index: 11;
   }
 
   .custom-btn:hover {
