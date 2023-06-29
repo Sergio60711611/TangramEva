@@ -4,6 +4,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <title>Tangram nivel 1</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/caiuss/1.0.2/caiuss.min.css" type="text/css" media="screen" charset="utf-8">
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" type="text/css" media="screen" charset="utf-8">
         <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" type="text/css" media="screen" charset="utf-8">
@@ -19,15 +20,28 @@
         <div class="title">
             <h1 class="text-center">Vista profesor</h1>
         </div>
-        <div class="graph"></div>
+        <div class="graph" id="captura"></div>
         <div class="lvl1">
         </div>
-        <!-- <button class="custom-btn">Enviar</button> -->
-        
+        <button class="custom-btn" id = "screenshot-btn">Enviar</button>
                 <a href="https://www.google.ro/search?q=tangram+ideas&tbm=isch" target="blank">
                     <span class="octicon octicon-light-bulb"></span>
                 </a>
             </div>
         </div>
+
+        <script>
+            var screenshotBtn = document.getElementById('screenshot-btn');
+            var captureDiv = document.getElementById('captura');
+          
+            screenshotBtn.addEventListener('click', function() {
+              html2canvas(captureDiv).then(function(canvas) {
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL();
+                link.download = 'screenshot.png';
+                link.click();
+              });
+            });
+          </script>
     </body>
 </html>
