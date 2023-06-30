@@ -34,10 +34,13 @@
         <div class="title">
             <h1 class="text-center">Vista Estudiante</h1>
         </div>
-        <div class="graph"></div>
-        <div class="lvl1">
+        <div class="graph" id="captura"></div>
+        <!--
+            <div class="lvl1">
             <img src="../img/choete.png" alt="imagen choete">
-        </div>
+            </div>
+        -->
+        
         
                 <a href="https://www.google.ro/search?q=tangram+ideas&tbm=isch" target="blank">
                     <span class="octicon octicon-light-bulb"></span>
@@ -55,5 +58,19 @@
             </div>
         </div>
         
+
+        <script>
+            var screenshotBtn = document.getElementById('screenshot-btn');
+            var captureDiv = document.getElementById('captura');
+          
+            screenshotBtn.addEventListener('click', function() {
+              html2canvas(captureDiv).then(function(canvas) {
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL();
+                link.download = 'screenshot.png';
+                link.click();
+              });
+            });
+          </script>
     </body>
 </html>
